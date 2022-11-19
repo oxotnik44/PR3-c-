@@ -1,0 +1,15 @@
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\PR3.1Console.exe.config
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\PR3.1Console.exe
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\PR3.1Console.pdb
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\EntityFramework.dll
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\HashPasword.dll
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\HashPasword.pdb
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\EntityFramework.xml
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\obj\Debug\PR3.1Console.csproj.AssemblyReference.cache
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\obj\Debug\PR3.1Console.csproj.CoreCompileInputs.cache
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\obj\Debug\PR3.1Console.csproj.CopyComplete
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\obj\Debug\PR3.1Console.exe
+C:\Users\pr-20.101-na\source\repos\PR3.1\PR3.1Console\obj\Debug\PR3.1Console.pdb

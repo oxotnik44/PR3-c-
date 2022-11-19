@@ -1,0 +1,5 @@
+C:\Users\pr-20.101-na\source\repos\PR3.1\HashPasword\bin\Debug\HashPasword.dll
+C:\Users\pr-20.101-na\source\repos\PR3.1\HashPasword\bin\Debug\HashPasword.pdb
+C:\Users\pr-20.101-na\source\repos\PR3.1\HashPasword\obj\Debug\HashPasword.csproj.CoreCompileInputs.cache
+C:\Users\pr-20.101-na\source\repos\PR3.1\HashPasword\obj\Debug\HashPasword.dll
+C:\Users\pr-20.101-na\source\repos\PR3.1\HashPasword\obj\Debug\HashPasword.pdb

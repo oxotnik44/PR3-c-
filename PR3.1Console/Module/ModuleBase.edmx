@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище LibraryBase" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID_Application" />
+          </Key>
+          <Property Name="ID_Application" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_Amount" Type="money" Nullable="false" />
+          <Property Name="Is_Paid" Type="bit" Nullable="false" />
+          <Property Name="Data_Registration" Type="date" Nullable="false" />
+          <Property Name="Data_Of_Completition" Type="date" Nullable="false" />
+          <Property Name="Patment_Method" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Client" Type="int" Nullable="false" />
+          <Property Name="ID_Manager" Type="int" Nullable="false" />
+          <Property Name="ID_Configuration" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="L_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="M_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="65" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Collector_PC">
+          <Key>
+            <PropertyRef Name="ID_Collector_Case" />
+          </Key>
+          <Property Name="ID_Collector_Case" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="L_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="M_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="65" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="ID_Configuration" />
+          </Key>
+          <Property Name="ID_Configuration" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CPU" Type="int" Nullable="false" />
+          <Property Name="ID_GPU" Type="int" Nullable="false" />
+          <Property Name="ID_RAM" Type="int" Nullable="false" />
+          <Property Name="ID_Motherboard" Type="int" Nullable="false" />
+          <Property Name="ID_Cooler" Type="int" Nullable="false" />
+          <Property Name="ID_Power_Unit" Type="int" Nullable="false" />
+          <Property Name="ID_PC_Case" Type="int" Nullable="false" />
+          <Property Name="ID_Collector_PC" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cooler">
+          <Key>
+            <PropertyRef Name="ID_Cooler" />
+          </Key>
+          <Property Name="ID_Cooler" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CPU">
+          <Key>
+            <PropertyRef Name="ID_CPU" />
+          </Key>
+          <Property Name="ID_CPU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GPU">
+          <Key>
+            <PropertyRef Name="ID_GPU" />
+          </Key>
+          <Property Name="ID_GPU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="ID_Manager" />
+          </Key>
+          <Property Name="ID_Manager" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="L_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="M_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Motherboard">
+          <Key>
+            <PropertyRef Name="ID_Motherboard" />
+          </Key>
+          <Property Name="ID_Motherboard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PC_Case">
+          <Key>
+            <PropertyRef Name="ID_PC_Case" />
+          </Key>
+          <Property Name="ID_PC_Case" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Power_Unit">
+          <Key>
+            <PropertyRef Name="ID_Power_Unit" />
+          </Key>
+          <Property Name="ID_Power_Unit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="ID_RAM" />
+          </Key>
+          <Property Name="ID_RAM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Application_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Configuration">
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Configuration">
+              <PropertyRef Name="ID_Configuration" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Configuration" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="ID_Manager" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_Collector_PC">
+          <End Role="Collector_PC" Type="Self.Collector_PC" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collector_PC">
+              <PropertyRef Name="ID_Collector_Case" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_Collector_PC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_Cooler">
+          <End Role="Cooler" Type="Self.Cooler" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cooler">
+              <PropertyRef Name="ID_Cooler" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_Cooler" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_CPU">
+          <End Role="CPU" Type="Self.CPU" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPU">
+              <PropertyRef Name="ID_CPU" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_GPU">
+          <End Role="GPU" Type="Self.GPU" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPU">
+              <PropertyRef Name="ID_GPU" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_GPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_Motherboard">
+          <End Role="Motherboard" Type="Self.Motherboard" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motherboard">
+              <PropertyRef Name="ID_Motherboard" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_Motherboard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_PC_Case">
+          <End Role="PC_Case" Type="Self.PC_Case" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PC_Case">
+              <PropertyRef Name="ID_PC_Case" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_PC_Case" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_Power_Unit">
+          <End Role="Power_Unit" Type="Self.Power_Unit" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Power_Unit">
+              <PropertyRef Name="ID_Power_Unit" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_Power_Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="ID_RAM" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище LibraryBaseContainer">
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collector_PC" EntityType="Self.Collector_PC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Configuration" EntityType="Self.Configuration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cooler" EntityType="Self.Cooler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CPU" EntityType="Self.CPU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GPU" EntityType="Self.GPU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Motherboard" EntityType="Self.Motherboard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PC_Case" EntityType="Self.PC_Case" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Power_Unit" EntityType="Self.Power_Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Application_Client" Association="Self.FK_Application_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Configuration" Association="Self.FK_Application_Configuration">
+            <End Role="Configuration" EntitySet="Configuration" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Manager" Association="Self.FK_Application_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_Collector_PC" Association="Self.FK_Configuration_Collector_PC">
+            <End Role="Collector_PC" EntitySet="Collector_PC" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_Cooler" Association="Self.FK_Configuration_Cooler">
+            <End Role="Cooler" EntitySet="Cooler" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_CPU" Association="Self.FK_Configuration_CPU">
+            <End Role="CPU" EntitySet="CPU" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_GPU" Association="Self.FK_Configuration_GPU">
+            <End Role="GPU" EntitySet="GPU" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_Motherboard" Association="Self.FK_Configuration_Motherboard">
+            <End Role="Motherboard" EntitySet="Motherboard" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_PC_Case" Association="Self.FK_Configuration_PC_Case">
+            <End Role="PC_Case" EntitySet="PC_Case" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_Power_Unit" Association="Self.FK_Configuration_Power_Unit">
+            <End Role="Power_Unit" EntitySet="Power_Unit" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_RAM" Association="Self.FK_Configuration_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibraryBase" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID_Application" />
+          </Key>
+          <Property Name="ID_Application" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Is_Paid" Type="Boolean" Nullable="false" />
+          <Property Name="Data_Registration" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Of_Completition" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Patment_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="ID_Manager" Type="Int32" Nullable="false" />
+          <Property Name="ID_Configuration" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Application_Client" FromRole="Application" ToRole="Client" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Application_Configuration" FromRole="Application" ToRole="Configuration" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_Application_Manager" FromRole="Application" ToRole="Manager" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="L_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="M_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Client" FromRole="Client" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="Collector_PC">
+          <Key>
+            <PropertyRef Name="ID_Collector_Case" />
+          </Key>
+          <Property Name="ID_Collector_Case" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="L_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="M_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Configuration_Collector_PC" FromRole="Collector_PC" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="ID_Configuration" />
+          </Key>
+          <Property Name="ID_Configuration" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CPU" Type="Int32" Nullable="false" />
+          <Property Name="ID_GPU" Type="Int32" Nullable="false" />
+          <Property Name="ID_RAM" Type="Int32" Nullable="false" />
+          <Property Name="ID_Motherboard" Type="Int32" Nullable="false" />
+          <Property Name="ID_Cooler" Type="Int32" Nullable="false" />
+          <Property Name="ID_Power_Unit" Type="Int32" Nullable="false" />
+          <Property Name="ID_PC_Case" Type="Int32" Nullable="false" />
+          <Property Name="ID_Collector_PC" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Configuration" FromRole="Configuration" ToRole="Application" />
+          <NavigationProperty Name="Collector_PC" Relationship="Self.FK_Configuration_Collector_PC" FromRole="Configuration" ToRole="Collector_PC" />
+          <NavigationProperty Name="Cooler" Relationship="Self.FK_Configuration_Cooler" FromRole="Configuration" ToRole="Cooler" />
+          <NavigationProperty Name="CPU" Relationship="Self.FK_Configuration_CPU" FromRole="Configuration" ToRole="CPU" />
+          <NavigationProperty Name="GPU" Relationship="Self.FK_Configuration_GPU" FromRole="Configuration" ToRole="GPU" />
+          <NavigationProperty Name="Motherboard" Relationship="Self.FK_Configuration_Motherboard" FromRole="Configuration" ToRole="Motherboard" />
+          <NavigationProperty Name="PC_Case" Relationship="Self.FK_Configuration_PC_Case" FromRole="Configuration" ToRole="PC_Case" />
+          <NavigationProperty Name="Power_Unit" Relationship="Self.FK_Configuration_Power_Unit" FromRole="Configuration" ToRole="Power_Unit" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK_Configuration_RAM" FromRole="Configuration" ToRole="RAM" />
+        </EntityType>
+        <EntityType Name="Cooler">
+          <Key>
+            <PropertyRef Name="ID_Cooler" />
+          </Key>
+          <Property Name="ID_Cooler" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Configuration_Cooler" FromRole="Cooler" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="CPU">
+          <Key>
+            <PropertyRef Name="ID_CPU" />
+          </Key>
+          <Property Name="ID_CPU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Configuration_CPU" FromRole="CPU" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="GPU">
+          <Key>
+            <PropertyRef Name="ID_GPU" />
+          </Key>
+          <Property Name="ID_GPU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Configuration_GPU" FromRole="GPU" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="ID_Manager" />
+          </Key>
+          <Property Name="ID_Manager" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="L_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="M_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Manager" FromRole="Manager" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="Motherboard">
+          <Key>
+            <PropertyRef Name="ID_Motherboard" />
+          </Key>
+          <Property Name="ID_Motherboard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Configuration_Motherboard" FromRole="Motherboard" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="PC_Case">
+          <Key>
+            <PropertyRef Name="ID_PC_Case" />
+          </Key>
+          <Property Name="ID_PC_Case" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Configuration_PC_Case" FromRole="PC_Case" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="Power_Unit">
+          <Key>
+            <PropertyRef Name="ID_Power_Unit" />
+          </Key>
+          <Property Name="ID_Power_Unit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Configuration_Power_Unit" FromRole="Power_Unit" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="ID_RAM" />
+          </Key>
+          <Property Name="ID_RAM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="Self.FK_Configuration_RAM" FromRole="RAM" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Application_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Configuration">
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Configuration">
+              <PropertyRef Name="ID_Configuration" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Configuration" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="ID_Manager" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_Collector_PC">
+          <End Role="Collector_PC" Type="Self.Collector_PC" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collector_PC">
+              <PropertyRef Name="ID_Collector_Case" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_Collector_PC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_Cooler">
+          <End Role="Cooler" Type="Self.Cooler" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cooler">
+              <PropertyRef Name="ID_Cooler" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_Cooler" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_CPU">
+          <End Role="CPU" Type="Self.CPU" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPU">
+              <PropertyRef Name="ID_CPU" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_GPU">
+          <End Role="GPU" Type="Self.GPU" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPU">
+              <PropertyRef Name="ID_GPU" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_GPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_Motherboard">
+          <End Role="Motherboard" Type="Self.Motherboard" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motherboard">
+              <PropertyRef Name="ID_Motherboard" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_Motherboard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_PC_Case">
+          <End Role="PC_Case" Type="Self.PC_Case" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PC_Case">
+              <PropertyRef Name="ID_PC_Case" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_PC_Case" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_Power_Unit">
+          <End Role="Power_Unit" Type="Self.Power_Unit" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Power_Unit">
+              <PropertyRef Name="ID_Power_Unit" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_Power_Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Configuration_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="ID_RAM" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ID_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Application" EntityType="Self.Application" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Collector_PC" EntityType="Self.Collector_PC" />
+          <EntitySet Name="Configuration" EntityType="Self.Configuration" />
+          <EntitySet Name="Cooler" EntityType="Self.Cooler" />
+          <EntitySet Name="CPU" EntityType="Self.CPU" />
+          <EntitySet Name="GPU" EntityType="Self.GPU" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" />
+          <EntitySet Name="Motherboard" EntityType="Self.Motherboard" />
+          <EntitySet Name="PC_Case" EntityType="Self.PC_Case" />
+          <EntitySet Name="Power_Unit" EntityType="Self.Power_Unit" />
+          <EntitySet Name="RAM" EntityType="Self.RAM" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Application_Client" Association="Self.FK_Application_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Configuration" Association="Self.FK_Application_Configuration">
+            <End Role="Configuration" EntitySet="Configuration" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Manager" Association="Self.FK_Application_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_Collector_PC" Association="Self.FK_Configuration_Collector_PC">
+            <End Role="Collector_PC" EntitySet="Collector_PC" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_Cooler" Association="Self.FK_Configuration_Cooler">
+            <End Role="Cooler" EntitySet="Cooler" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_CPU" Association="Self.FK_Configuration_CPU">
+            <End Role="CPU" EntitySet="CPU" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_GPU" Association="Self.FK_Configuration_GPU">
+            <End Role="GPU" EntitySet="GPU" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_Motherboard" Association="Self.FK_Configuration_Motherboard">
+            <End Role="Motherboard" EntitySet="Motherboard" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_PC_Case" Association="Self.FK_Configuration_PC_Case">
+            <End Role="PC_Case" EntitySet="PC_Case" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_Power_Unit" Association="Self.FK_Configuration_Power_Unit">
+            <End Role="Power_Unit" EntitySet="Power_Unit" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Configuration_RAM" Association="Self.FK_Configuration_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryBaseContainer" CdmEntityContainer="LibraryEntities">
+          <EntitySetMapping Name="Application">
+            <EntityTypeMapping TypeName="LibraryBase.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="ID_Application" ColumnName="ID_Application" />
+                <ScalarProperty Name="Order_Amount" ColumnName="Order_Amount" />
+                <ScalarProperty Name="Is_Paid" ColumnName="Is_Paid" />
+                <ScalarProperty Name="Data_Registration" ColumnName="Data_Registration" />
+                <ScalarProperty Name="Data_Of_Completition" ColumnName="Data_Of_Completition" />
+                <ScalarProperty Name="Patment_Method" ColumnName="Patment_Method" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="ID_Manager" ColumnName="ID_Manager" />
+                <ScalarProperty Name="ID_Configuration" ColumnName="ID_Configuration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="LibraryBase.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="F_Name" ColumnName="F_Name" />
+                <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+                <ScalarProperty Name="M_Name" ColumnName="M_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collector_PC">
+            <EntityTypeMapping TypeName="LibraryBase.Collector_PC">
+              <MappingFragment StoreEntitySet="Collector_PC">
+                <ScalarProperty Name="ID_Collector_Case" ColumnName="ID_Collector_Case" />
+                <ScalarProperty Name="F_Name" ColumnName="F_Name" />
+                <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+                <ScalarProperty Name="M_Name" ColumnName="M_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configuration">
+            <EntityTypeMapping TypeName="LibraryBase.Configuration">
+              <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="ID_Configuration" ColumnName="ID_Configuration" />
+                <ScalarProperty Name="ID_CPU" ColumnName="ID_CPU" />
+                <ScalarProperty Name="ID_GPU" ColumnName="ID_GPU" />
+                <ScalarProperty Name="ID_RAM" ColumnName="ID_RAM" />
+                <ScalarProperty Name="ID_Motherboard" ColumnName="ID_Motherboard" />
+                <ScalarProperty Name="ID_Cooler" ColumnName="ID_Cooler" />
+                <ScalarProperty Name="ID_Power_Unit" ColumnName="ID_Power_Unit" />
+                <ScalarProperty Name="ID_PC_Case" ColumnName="ID_PC_Case" />
+                <ScalarProperty Name="ID_Collector_PC" ColumnName="ID_Collector_PC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cooler">
+            <EntityTypeMapping TypeName="LibraryBase.Cooler">
+              <MappingFragment StoreEntitySet="Cooler">
+                <ScalarProperty Name="ID_Cooler" ColumnName="ID_Cooler" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CPU">
+            <EntityTypeMapping TypeName="LibraryBase.CPU">
+              <MappingFragment StoreEntitySet="CPU">
+                <ScalarProperty Name="ID_CPU" ColumnName="ID_CPU" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GPU">
+            <EntityTypeMapping TypeName="LibraryBase.GPU">
+              <MappingFragment StoreEntitySet="GPU">
+                <ScalarProperty Name="ID_GPU" ColumnName="ID_GPU" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager">
+            <EntityTypeMapping TypeName="LibraryBase.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="ID_Manager" ColumnName="ID_Manager" />
+                <ScalarProperty Name="F_Name" ColumnName="F_Name" />
+                <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+                <ScalarProperty Name="M_Name" ColumnName="M_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motherboard">
+            <EntityTypeMapping TypeName="LibraryBase.Motherboard">
+              <MappingFragment StoreEntitySet="Motherboard">
+                <ScalarProperty Name="ID_Motherboard" ColumnName="ID_Motherboard" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PC_Case">
+            <EntityTypeMapping TypeName="LibraryBase.PC_Case">
+              <MappingFragment StoreEntitySet="PC_Case">
+                <ScalarProperty Name="ID_PC_Case" ColumnName="ID_PC_Case" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Power_Unit">
+            <EntityTypeMapping TypeName="LibraryBase.Power_Unit">
+              <MappingFragment StoreEntitySet="Power_Unit">
+                <ScalarProperty Name="ID_Power_Unit" ColumnName="ID_Power_Unit" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAM">
+            <EntityTypeMapping TypeName="LibraryBase.RAM">
+              <MappingFragment StoreEntitySet="RAM">
+                <ScalarProperty Name="ID_RAM" ColumnName="ID_RAM" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LibraryBase.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
